@@ -47,7 +47,14 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 .htrack{display:flex;gap:20px;align-items:center;will-change:transform;padding:0 60px 0 0}
 .hcard{flex:none;width:300px}
 .hintro{flex:none;width:420px;display:flex;flex-direction:column}
-@media (max-width:860px){.hwrap{height:auto !important}.hsticky{position:static;height:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.hcard{width:72vw;scroll-snap-align:start}.hintro{width:72vw}}
+@media (max-width:860px){.hwrap{height:auto !important}
+.hsticky,.wgrid{position:static !important;height:auto !important;display:flex !important;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px !important;width:auto !important;margin:0 -28px !important;padding:4px 28px 16px !important;scroll-padding-left:28px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.hsticky::-webkit-scrollbar,.wgrid::-webkit-scrollbar{display:none}
+.htrack{transform:none !important;gap:14px !important;padding:0 !important}
+.hintro{display:none !important}
+.hcard,.wgrid>.work{flex:none !important;width:74vw !important;scroll-snap-align:start}
+.wgrid>.work{translate:none !important}
+}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes playhead{0%{left:14%}100%{left:96%}}
 @keyframes spin{to{transform:rotate(360deg)}}
