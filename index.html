@@ -40,6 +40,14 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 .tilt{transition:transform .1s linear}
 }
 @media (prefers-reduced-motion:reduce){.ltr,.blob,.uline,.sec-title,.work,.quote,.svc,.reveal,.tilt,.progress{animation:none !important}}
+.w{color:#D3CEC2;transition:color .25s}
+.w.on{color:#121212}.w.hi.on{color:#C2410C}
+.hwrap{position:relative}
+.hsticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden;width:100vw;margin-left:calc(50% - 50vw);padding-left:max(28px,calc(50vw - 632px));box-sizing:border-box}
+.htrack{display:flex;gap:20px;align-items:center;will-change:transform;padding:0 60px 0 0}
+.hcard{flex:none;width:300px}
+.hintro{flex:none;width:420px;display:flex;flex-direction:column}
+@media (max-width:860px){.hwrap{height:auto !important}.hsticky{position:static;height:auto;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px}.hcard{width:72vw;scroll-snap-align:start}.hintro{width:72vw}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 @keyframes playhead{0%{left:14%}100%{left:96%}}
 @keyframes spin{to{transform:rotate(360deg)}}
@@ -86,7 +94,7 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 }
 </style>
 
-<div style="font-family: Inter, system-ui, sans-serif; color: #121212; background: #F2F0EA; overflow: hidden">
+<div style="font-family: Inter, system-ui, sans-serif; color: #121212; background: #F2F0EA; overflow-x: clip">
 
 <div class="progress" aria-hidden="true" style="position:fixed;top:0;left:0;right:0;height:3px;background:#C2410C;transform-origin:0 50%;transform:scaleX(0);z-index:60"></div>
 <header style="position: sticky; top: 0; z-index: 20; background: rgba(242,240,234,0.88); backdrop-filter: blur(14px); border-bottom: 1px solid #DDD8CC">
@@ -104,8 +112,6 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 </header>
 
 <section id="top" style="position:relative;overflow:hidden;background:#F2F0EA;color:#121212">
-<div class="blob" aria-hidden="true" style="width:520px;height:520px;background:#F26B2E;top:-120px;left:30%"></div>
-<div class="blob" aria-hidden="true" style="width:420px;height:420px;background:#B79CFF;bottom:-160px;right:5%;animation-delay:-6s"></div>
 <div class="hero-grid" style="position:relative;max-width:1360px;margin:0 auto;padding:64px 28px 88px;display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:56px;align-items:center">
 <div>
 <p class="rise" style="margin:0 0 18px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#555">Ronn Tristan — Video editor &amp; designer</p>
@@ -221,6 +227,10 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 </div>
 </div>
 
+<section class="statement" style="max-width:1160px;margin:0 auto;padding:160px 28px 120px">
+<p style="margin:0 0 28px;font-family:'JetBrains Mono',monospace;font-size:14px;color:#C2410C">(01) — About</p>
+<p class="fill" style="margin:0;font-family:Inter,sans-serif;font-weight:700;font-size:clamp(30px,4.4vw,62px);line-height:1.12;letter-spacing:-0.035em"><span class="w">I</span> <span class="w">turn</span> <span class="w">raw</span> <span class="w">footage</span> <span class="w">into</span> <span class="w hi">stories</span> <span class="w">people</span> <span class="w hi">can't</span> <span class="w hi">scroll</span> <span class="w hi">past</span> <span class="w">—</span> <span class="w">short</span> <span class="w">form,</span> <span class="w">long</span> <span class="w">form</span> <span class="w">and</span> <span class="w">graphics</span> <span class="w">that</span> <span class="w">make</span> <span class="w">brands</span> <span class="w hi">impossible</span> <span class="w">to</span> <span class="w hi">ignore.</span></p>
+</section>
 <section id="services" style="max-width: 1320px; margin: 0 auto; padding: 96px 28px">
 <p style="margin: 0 0 14px; font-family: 'JetBrains Mono', monospace; color: #C2410C; font-size: 14px">(02) — What I can do</p>
 <h2 class="sec-title" style="margin: 0 0 48px; font-family: Syne, sans-serif; font-weight: 800; font-size: 72px; line-height: 0.95; letter-spacing: -0.03em; text-transform: uppercase">Services</h2>
@@ -254,28 +264,27 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 <h3 style="margin: 0; font-family: Syne, sans-serif; font-weight: 800; font-size: 40px; letter-spacing: -0.02em; text-transform: uppercase"><span style="font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 16px; color: #C2410C; vertical-align: middle; margin-right: 14px">01</span>Short Form</h3>
 <span style="color: #5E5B55; font-size: 15px">Reels · TikTok · Shorts</span>
 </div>
-<div class="wgrid" style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px">
-<div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#E4EBD3,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
+<div class="hwrap"><div class="hsticky"><div class="htrack">
+<div class="hintro"><span style="font-family:Syne,sans-serif;font-weight:800;font-size:64px;line-height:.9;letter-spacing:-.03em;text-transform:uppercase">Made for<br>the <span style="color:#C2410C">scroll.</span></span><span style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#5E5B55;margin-top:20px">Keep scrolling →</span></div>
+<div class="hcard"><div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#E4EBD3,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
 <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 12px; border: 1px solid #C9C4B8; padding: 6px 12px; border-radius: 999px">Short form</span>
 <span class="play" style="position: absolute; top: 50%; left: 50%; margin: -30px 0 0 -30px; width: 60px; height: 60px; border-radius: 50%; background: rgba(0,0,0,0.07); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 <div><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 22px">[Project name]</div><div style="font-size: 14px; margin-top: 4px; opacity: 0.7">[YouTube link]</div></div>
-</div>
-<div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#E6E0F2,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
+</div></div><div class="hcard"><div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#E6E0F2,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
 <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 12px; border: 1px solid #C9C4B8; padding: 6px 12px; border-radius: 999px">Short form</span>
 <span class="play" style="position: absolute; top: 50%; left: 50%; margin: -30px 0 0 -30px; width: 60px; height: 60px; border-radius: 50%; background: rgba(0,0,0,0.07); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 <div><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 22px">[Project name]</div><div style="font-size: 14px; margin-top: 4px; opacity: 0.7">[YouTube link]</div></div>
-</div>
-<div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#DCE6F5,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
+</div></div><div class="hcard"><div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#DCE6F5,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
 <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 12px; border: 1px solid #C9C4B8; padding: 6px 12px; border-radius: 999px">Short form</span>
 <span class="play" style="position: absolute; top: 50%; left: 50%; margin: -30px 0 0 -30px; width: 60px; height: 60px; border-radius: 50%; background: rgba(0,0,0,0.07); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 <div><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 22px">[Project name]</div><div style="font-size: 14px; margin-top: 4px; opacity: 0.7">[YouTube link]</div></div>
-</div>
-<div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#F3E2D6,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
+</div></div><div class="hcard"><div class="work" style="position: relative; aspect-ratio: 9/16; border-radius: 18px; overflow: hidden; background: linear-gradient(160deg,#F3E2D6,#FFFFFF); color: #121212; border: 1px solid #DDD8CC; padding: 20px; display: flex; flex-direction: column; justify-content: space-between">
 <span style="align-self: flex-start; font-family: 'JetBrains Mono', monospace; font-size: 12px; border: 1px solid #C9C4B8; padding: 6px 12px; border-radius: 999px">Short form</span>
 <span class="play" style="position: absolute; top: 50%; left: 50%; margin: -30px 0 0 -30px; width: 60px; height: 60px; border-radius: 50%; background: rgba(0,0,0,0.07); display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></span>
 <div><div style="font-family: Syne, sans-serif; font-weight: 700; font-size: 22px">[Project name]</div><div style="font-size: 14px; margin-top: 4px; opacity: 0.7">[YouTube link]</div></div>
-</div>
-</div>
+</div></div>
+<div class="hintro" style="justify-content:center"><a href="#works-long" style="font-family:Syne,sans-serif;font-weight:800;font-size:40px;text-transform:uppercase">Long form ↓</a></div>
+</div></div></div>
 </div>
 <div id="works-long" style="padding-top: 56px">
 <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid #DDD8CC">
@@ -395,6 +404,26 @@ var bar=document.querySelector('.progress'),tilt=document.querySelector('.tilt')
 function onScroll(){var y=window.scrollY,h=d.scrollHeight-innerHeight;if(bar)bar.style.transform='scaleX('+(h>0?y/h:0)+')';
 if(tilt&&innerWidth>860){var p=Math.min(y/700,1);tilt.style.transform='rotate('+(-1.5+1.5*p)+'deg) scale('+(1-0.04*p)+') translateY('+(-30*p)+'px)';}}
 addEventListener('scroll',onScroll,{passive:true});onScroll();
+})();
+</script>
+<script>
+(function(){
+var d=document.documentElement,mob=function(){return innerWidth<=860};
+var words=document.querySelectorAll('.fill .w'),fill=document.querySelector('.fill');
+var hw=document.querySelector('.hwrap'),ht=document.querySelector('.htrack');
+var mq=document.querySelector('.marquee'),anim=mq&&mq.getAnimations?mq.getAnimations()[0]:null;
+var title=document.querySelector('#works .sec-title');
+var lastY=scrollY,vel=0;
+function size(){if(hw&&ht){if(mob()){hw.style.height='auto';return;}var ex=ht.scrollWidth-innerWidth+160;hw.style.height=(innerHeight+Math.max(ex,0))+'px';}}
+function frame(){
+ var y=scrollY;vel=vel*0.85+(y-lastY)*0.15;lastY=y;
+ if(fill){var r=fill.getBoundingClientRect(),p=(innerHeight*0.85-r.top)/(r.height+innerHeight*0.35);p=Math.max(0,Math.min(1,p));var n=Math.round(p*words.length);for(var i=0;i<words.length;i++)words[i].classList.toggle('on',i<n);}
+ if(hw&&ht&&!mob()){var r2=hw.getBoundingClientRect(),tot=hw.offsetHeight-innerHeight,q=Math.max(0,Math.min(1,-r2.top/tot));ht.style.transform='translateX('+(-q*(ht.scrollWidth-innerWidth+160))+'px)';}
+ if(anim){var v=Math.max(-6,Math.min(6,vel/6));anim.playbackRate=(v<0?-1:1)*(1+Math.abs(v));}
+ if(title){var r3=title.getBoundingClientRect();title.style.transform='translateX('+((r3.top-innerHeight/2)*-0.25)+'px)';}
+ requestAnimationFrame(frame);
+}
+size();addEventListener('resize',size);addEventListener('load',size);requestAnimationFrame(frame);
 })();
 </script>
 </body>
