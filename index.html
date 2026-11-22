@@ -34,11 +34,10 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 @keyframes clipIn{from{clip-path:inset(0 0 100% 0);translate:0 50px}to{clip-path:inset(0 0 -10% 0);translate:0 0}}
 @keyframes untilt{to{transform:rotate(0deg) scale(.96);translate:0 -30px}}
 @keyframes grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@supports (animation-timeline: view()){
-.sec-title{animation:clipIn linear both;animation-timeline:view();animation-range:entry 0% cover 30%}
-.work,.quote,.svc,.reveal{animation:revealUp linear both;animation-timeline:view();animation-range:entry 0% cover 22%}
-.tilt{animation:untilt linear both;animation-timeline:scroll(root);animation-range:0 700px}
-.progress{animation:grow linear both;animation-timeline:scroll(root)}
+.js .sec-title,.js .work,.js .quote,.js .svc,.js .reveal{opacity:0;translate:0 70px;transition:opacity .9s cubic-bezier(.2,.8,.2,1),translate .9s cubic-bezier(.2,.8,.2,1),clip-path 1s cubic-bezier(.2,.8,.2,1)}
+.js .sec-title{clip-path:inset(0 0 100% 0)}
+.js .in{opacity:1 !important;translate:0 0 !important;clip-path:inset(0 0 -10% 0) !important}
+.tilt{transition:transform .1s linear}
 }
 @media (prefers-reduced-motion:reduce){.ltr,.blob,.uline,.sec-title,.work,.quote,.svc,.reveal,.tilt,.progress{animation:none !important}}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
@@ -382,6 +381,20 @@ var Q=[["[Client feedback #1, in their own words.]","[Client name]","[Role, Comp
 function sq(){document.getElementById('qtext').textContent=Q[q][0];document.getElementById('qname').textContent=Q[q][1];document.getElementById('qrole').textContent=Q[q][2];document.getElementById('qpos').textContent='0'+(q+1)+' / 0'+Q.length}
 document.getElementById('qnext').addEventListener('click',function(){q=(q+1)%Q.length;sq()});
 document.getElementById('qprev').addEventListener('click',function(){q=(q+Q.length-1)%Q.length;sq()});
+})();
+</script>
+<script>
+(function(){
+var d=document.documentElement;d.classList.add('js');
+var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+var els=document.querySelectorAll('.sec-title,.work,.quote,.svc,.reveal');
+if(reduce||!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return;}
+var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){var e=en.target;var sib=[].indexOf.call(e.parentNode.children,e);e.style.transitionDelay=Math.min(sib,6)*0.08+'s';e.classList.add('in');io.unobserve(e)}})},{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+els.forEach(function(e){io.observe(e)});
+var bar=document.querySelector('.progress'),tilt=document.querySelector('.tilt');
+function onScroll(){var y=window.scrollY,h=d.scrollHeight-innerHeight;if(bar)bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+if(tilt&&innerWidth>860){var p=Math.min(y/700,1);tilt.style.transform='rotate('+(-1.5+1.5*p)+'deg) scale('+(1-0.04*p)+') translateY('+(-30*p)+'px)';}}
+addEventListener('scroll',onScroll,{passive:true});onScroll();
 })();
 </script>
 </body>
