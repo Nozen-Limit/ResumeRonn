@@ -78,15 +78,34 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 .quote:hover{border-color:#C2410C;transform:translateY(-4px)}
 @media (prefers-reduced-motion:reduce){.marquee,.marquee-slow,.playhead,.spin,.blink,.rise,.rise2,.rise3,.float{animation:none}}
 @media (max-width:860px){
-.nav-links{display:none !important}
-.hero-grid{grid-template-columns:1fr !important}
+.nav-links{display:flex !important;gap:0 !important;font-size:13px !important;overflow-x:auto;scrollbar-width:none}
+.navlink{padding:10px 7px !important}
+.cta{display:none !important}
+header nav{padding:10px 16px !important}
+header nav>a:first-child{font-size:17px !important;white-space:nowrap;flex:none}
+section{padding-top:64px !important;padding-bottom:64px !important}
+.statement{padding:72px 20px !important}
+.svc{gap:14px !important;padding:22px 4px !important}
+.svc>span:nth-child(2){font-size:26px !important}
+.svc-n{width:24px !important}
+.svc .arrow{width:28px;height:28px}
+.wgrid{grid-template-columns:minmax(0,1fr) !important}
+.sec-title{font-size:40px !important}
+#works h3{font-size:30px !important}
+#clients .marquee-slow{font-size:26px !important}
+.quote{padding:24px !important}
+.track-label{width:64px !important}
+.screen{padding:14px !important}
+.screen [style*="flex: 1; display: flex"]{min-width:0}
+.screen [style*="white-space: nowrap; overflow: hidden"]{min-width:0;font-size:11px !important;padding:10px 6px !important;text-overflow:ellipsis}
+.hero-grid{grid-template-columns:minmax(0,1fr) !important;gap:40px !important;padding:40px 20px 56px !important}
 .tilt{transform:none !important}
 .hero-title{font-size:56px !important}
 .hero-sub{flex-direction:column !important;align-items:flex-start !important}
 .works-grid{grid-template-columns:1fr !important}
 .works-grid>*{grid-column:auto !important;grid-row:auto !important;min-height:260px}
 .grid3{grid-template-columns:1fr !important}
-.wgrid{grid-template-columns:repeat(2,minmax(0,1fr)) !important}
+
 .svc{flex-wrap:wrap}
 .svc-d{display:none !important}
 .sec-title{font-size:44px !important}
@@ -107,7 +126,7 @@ a{color:#121212;text-decoration:none}a:hover{color:#C2410C}
 <a class="navlink" href="#clients">Clients</a>
 <a class="navlink" href="#feedback">Feedback</a>
 </div>
-<a href="#contact" style="display: flex; align-items: center; gap: 8px; border: 1px solid #C9C4B8; padding: 11px 18px; border-radius: 999px; font-size: 14px; font-weight: 500"><span class="blink" style="width: 8px; height: 8px; border-radius: 50%; background: #C2410C"></span>Open for projects</a>
+<a class="cta" href="#contact" style="display: flex; align-items: center; gap: 8px; border: 1px solid #C9C4B8; padding: 11px 18px; border-radius: 999px; font-size: 14px; font-weight: 500"><span class="blink" style="width: 8px; height: 8px; border-radius: 50%; background: #C2410C"></span>Open for projects</a>
 </nav>
 </header>
 
@@ -420,7 +439,7 @@ function frame(){
  if(fill){var r=fill.getBoundingClientRect(),p=(innerHeight*0.85-r.top)/(r.height+innerHeight*0.35);p=Math.max(0,Math.min(1,p));var n=Math.round(p*words.length);for(var i=0;i<words.length;i++)words[i].classList.toggle('on',i<n);}
  if(hw&&ht&&!mob()){var r2=hw.getBoundingClientRect(),tot=hw.offsetHeight-innerHeight,q=Math.max(0,Math.min(1,-r2.top/tot));ht.style.transform='translateX('+(-q*(ht.scrollWidth-innerWidth+160))+'px)';}
  if(anim){var v=Math.max(-6,Math.min(6,vel/6));anim.playbackRate=(v<0?-1:1)*(1+Math.abs(v));}
- if(title){var r3=title.getBoundingClientRect();title.style.transform='translateX('+((r3.top-innerHeight/2)*-0.25)+'px)';}
+ if(title&&!mob()){var r3=title.getBoundingClientRect();title.style.transform='translateX('+((r3.top-innerHeight/2)*-0.25)+'px)';}
  requestAnimationFrame(frame);
 }
 size();addEventListener('resize',size);addEventListener('load',size);requestAnimationFrame(frame);
